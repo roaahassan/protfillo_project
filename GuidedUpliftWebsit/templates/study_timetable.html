@@ -1,0 +1,20 @@
+<!-- file name : study_timetable.html -->
+<!-- Author : Nosiba Elmokashfi Musa -->
+<!-- created : 27/6/2024 
+  last modification : 27/6/2024 -->
+<!-- perpus: to structure sudents organization page -->
+
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="tim-cont">
+  <h1>create your timetable</h1>
+  <form action="../../controllers/timetable.php" id="timetable-form" method="post">
+    <input type="hidden" name="id" id="tId">
+    <input type="text" name="day" id="day" placeholder="Day" required>
+    <input type="text" name="time" id="time" placeholder="Time" required>
+    <input type="text" name="subject" id="subject" placeholder="Subject" required>
+    <button type="submit" name="create">add</button>
+  </form>
+</div>
+{% endblock %}

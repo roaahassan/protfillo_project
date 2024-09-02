@@ -1,0 +1,204 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    box-sizing: border-box;
+    font-style: italic;
+    background-color: rgba(210, 210, 233, 0.082);
+}
+
+header img {
+    /* background-color: rgba(0, 0, 0, 0.123); */
+    border-radius: 50%;
+    margin: 3px 3px 0px 2px;
+    display: inline;
+    float: left;
+}
+
+header h2 {
+    font-weight: bold;
+    display: inline;
+    float: left;
+    margin-top: 15px;
+    height: 50px;
+    width: 80px;
+    /* color: rgb(250, 248, 248); */
+}
+
+header h2:hover {
+    color: rgb(214, 181, 118);
+
+}
+
+
+header {
+    position: absolute;
+    width: 100%;
+    background-color: rgb(202, 200, 211);
+    /* color: rgb(248, 241, 241); */
+}
+
+.menu {
+    width: 400px;
+    float: left;
+    height: 70;
+}
+
+ul {
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    margin: 2px 10px 12px 130px;
+
+    /* background-color: aquamarine;   */
+    /* margin: 3px 5px 150px 70px ; */
+}
+
+ul li {
+    list-style: none;
+    /* margin-right: 10px;
+    margin-top: 40px; */
+    font-size: 20px;
+    margin-top: 0px
+}
+
+ul li a {
+    text-decoration: none;
+    color: rgb(34, 32, 32);
+    margin: 0px 40px 20px 40px;
+    /* margin-bottom: 100px;  */
+}
+
+ul li a:hover {
+    background-color: rgba(36, 36, 161, 0.096);
+    color: white;
+    padding: 15px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+ul li button a {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 7px;
+    margin: 2px;
+}
+
+ul li button a:hover {
+    color: white;
+    padding: 3px;
+    width: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+ul li button {
+    border: none;
+    border-radius: 10px;
+    width: 90px;
+    padding: 7px;
+    margin: 8px;
+    /* background-color: rgb(40, 123, 125) */
+    background-color: rgb(175, 133, 54);
+}
+
+ul li button:hover {
+    filter: brightness(90%);
+}
+
+
+footer {
+    background-color: rgb(202, 200, 211);
+    height: 10vh;
+    bottom: 0;
+    width: 100%;
+}
+
+footer h3 {
+    position: absolute;
+    left: 30%;
+    margin-top: 20px;
+}
+
+#pic {
+
+    margin-top: 65px;
+    /* margin-left: 400px;  */
+    /* margin-left: 300px;  */
+    width: 100%;
+    height: 450px;
+    margin-left: 40px;
+
+}
+
+article {
+    padding: 50px;
+}
+
+.container h1 {
+    padding: 10px;
+    font-size: 85px;
+    color: rgb(45, 45, 95);
+    margin-left: 25px;
+
+
+}
+
+article .one {
+    font-size: 25px;
+    margin-left: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+article h3 {
+    margin-left: 50px;
+    font-size: 40px;
+    color: rgb(45, 45, 95);
+
+}
+
+article .two {
+    margin-left: 50px;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+article .three {
+    margin-left: 50px;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+article .four {
+    margin-left: 50px;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+article .five {
+    margin-left: 50px;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+article .six {
+    margin-left: 50px;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+article .seven {
+    margin-left: 50px;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+article .eight {
+    margin-left: 50px;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+}

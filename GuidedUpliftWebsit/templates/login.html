@@ -1,0 +1,37 @@
+<!-- file name : login.html -->
+<!-- Author : Roaa Hassan Ahmed  -->
+<!-- created  29/6 last modification at 5/7 -->
+<!-- this file created to structure home page -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page</title>
+    <link rel="stylesheet" href="{{ url_for('static' , filename='style/login_sty.css') }}">
+</head>
+
+<body>
+    <header>
+        <img src="{{ url_for('static' , filename='imgs/bagepic.png')  }}" width="50" hight="50" alt="not found">
+        <h2>GuidedUplift<h2>
+    </header>
+    <p id="tit">To access <span>GuidedUplift </span>timetable please login </p>
+    <main>
+        <form method="POST">
+            <input type="text" name="uname" placeholder="Enter user name" id="name">
+            <input type="password" name="upass" placeholder="Enter password" id="pw">
+            <input type="submit" value="login" id="go">
+        </form>
+        <p>Don’t have an account?create it<a href="create_account">here</a></p>
+
+    </main>
+    <footer>
+        <h3>GuidedUplift &copy; Copyright 2024 All Rightes Reserved.</h3>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,193 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    box-sizing: border-box;
+    /* background: url(../imgs/sty.jpg) no-repeat center/ cover; */
+    justify-content: center;
+    background-color: rgba(100, 9, 247, 0);
+    /* background-color: rgba(22, 61, 231, 0.103);  */
+}
+
+main h2 {
+    color: #000;
+}
+
+header img {
+    border-radius: 50%;
+    margin: 3px 3px 0px 2px;
+    display: inline;
+    float: left;
+}
+
+header,
+footer {
+    position: absolute;
+    width: 100%;
+    background-color: rgba(142, 140, 153, 0.568);
+    color: rgb(41, 38, 38);
+}
+
+header {
+    height: 10vh;
+    /* margin-top:0;  */
+    top: 0;
+}
+
+footer {
+    height: 10vh;
+    bottom: 0;
+}
+
+footer h3 {
+    position: absolute;
+    left: 30%;
+    margin-top: 20px;
+    color: white;
+}
+
+header h2 {
+    font-weight: bold;
+    font-style: italic;
+    display: inline;
+    float: left;
+    margin-top: 15px;
+    height: 50px;
+    width: 80px;
+    color: white;
+    /* background-color: brown;  */
+}
+
+header h2:hover {
+    color: rgba(201, 139, 25, 0.774);
+
+}
+
+main h2 {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    margin: 90px auto 0px auto;
+    margin-right: 25px;
+    padding: 10px;
+    color: rgb(250, 245, 245);
+
+}
+
+div {
+    background-color: rgba(187, 185, 185, 0.527);
+    justify-content: center;
+    width: 350px;
+    height: 320px;
+    padding: 7px;
+    margin: 20px auto 5px auto;
+    border-radius: 10px;
+    backdrop-filter: blur(25px);
+
+}
+
+/* div img{
+    width: 100px;
+    height: 130px;
+    margin: 10px 0px 5px 90px;
+    border-radius: 50%;
+} */
+form {
+    margin-top: 10px;
+}
+
+form input {
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    padding: 10px;
+    margin: 20px 0px 7px 45px;
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 240px;
+}
+
+form input:hover {
+    border: 2px solid black;
+}
+
+#pw {
+    display: block;
+}
+
+#sub {
+    border: none;
+    font-weight: bold;
+    background-color: rgba(69, 120, 196, 0.979);
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    width: 260px;
+}
+
+#sub:hover {
+    filter: brightness(90%);
+    border: none;
+    cursor: pointer;
+}
+
+p {
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    color: black;
+    /* margin-left: 10px 0px 5px 40px; */
+    text-align: center;
+    margin-top: 10px;
+}
+
+p a {
+    font-weight: bold;
+    font-size: 20px;
+    padding: 4px;
+
+
+}
+
+main h2 {
+    color: #000;
+}
+
+
+/* Style for the alert box */
+.custom-alert {
+    position: relative;
+    /* Allows positioning of the close button */
+    padding: 10px;
+    margin-top: 70px;
+    margin-bottom: 30px;
+    border: 1px solid #d6d6d6;
+    border-radius: 5px;
+    background-color: #f8d7da;
+    height: 100px;
+    /* Light red background */
+    color: #721c24;
+    /* Dark red text color */
+}
+
+/* Style for the close button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #721c24;
+    /* Dark red text color to match the alert */
+}
+
+/* Optional: Style for the close button on hover */
+.close-btn:hover {
+    color: #f5c6cb;
+    /* Lighter red when hovering */
+}

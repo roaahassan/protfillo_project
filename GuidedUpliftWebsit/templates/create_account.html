@@ -1,0 +1,63 @@
+<!-- file name : create_account.html -->
+<!-- Author : Zeinab Abdallaziz Ahmed  -->
+<!-- created 6/20/2024 last & modification at 6/23/2024 -->
+<!-- the perpus of this file is  to structure create account page -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Create User Acount</title>
+   <link rel="stylesheet" href="{{url_for('static',filename='style/creat_acc_sty.css')}}">
+</head>
+
+<body>
+   <header>
+      <img src="{{ url_for('static' , filename='imgs/bagepic.png')  }}" width="50" hight="50" alt="not found">
+      <h2>GuidedUplift<h2>
+   </header>
+   <main>
+      <h2> Create An Acount</h2>
+      <div>
+         <form method="POST">
+            <input type="text" placeholder="Enter user name" name="uname" required>
+            <input type="email" placeholder="Enter your E-mail" name="email" required>
+            <input type="password" placeholder="Enter password" name="psw" id="pw" required>
+            <input type="submit" name="sub" id="sub">
+            <p>Already have an account?
+               <a href="/login">login</a>
+            </p>
+            <div class="custom-alert" role="alert">
+               User name is used before !
+               <button type="button" class="close-btn" aria-label="Close"></button>
+            </div>
+
+         </form>
+
+      </div>
+
+   </main>
+   <footer>
+      <h3>GuidedUplift &copy; Copyright 2024 All Rightes Reserved.</h3>
+   </footer>
+   <script>
+      document.addEventListener('DOMContentLoaded', function () {
+         var closeButtons = document.querySelectorAll('.close-btn');
+
+         closeButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+               // Find the closest parent alert and hide it
+               var alert = this.closest('.custom-alert');
+               if (alert) {
+                  alert.style.display = 'none';
+               }
+            });
+         });
+      });
+   </script>
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!-- file name : home.html -->
+<!-- Author : Roaa Hassan Ahmed  -->
+<!-- created  25/6 last modification at 28/6 -->
+<!-- this file created to structure home page -->
+
+
+{% extends 'base.html' %}
+{% block main %}
+<!-- <h2>Welcome To GuidedUplif Website</h2> -->
+<img src="{{ url_for('static', filename='imgs/sty.jpg') }}" id="mpic">
+<h2>Welcome To GuidedUplif Website</h2>
+<div class="content">
+  <p id="para1">
+    GuidedUplift webite it is a website that supports students By organizing
+    their<br> studies by presenting strategies that organize study and time management
+    and<br> providing tips to improve concentration and increase productivity during
+    which<br><span>is one of the biggest problems facing students during the study.</span><br>
+  </p>
+  <p id="para2">
+    It also provides tools to create an effective study schedule and display techniques<br>
+    for planning and organizingstudy tasks,and it also displays effective techniques <br>
+    for learning and remembering and provides tips for preparing for tests and exams.<br>
+  </p>
+  <p id="para3">
+    In addition to showing motivation books for students and
+    provides <br>the possibility of creating an account to access the site through it.
+  </p>
+</div>
+{% endblock %}

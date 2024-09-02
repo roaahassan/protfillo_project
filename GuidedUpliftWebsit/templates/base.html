@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static' , filename='style/base_style.css') }}"> -->
+    {% if custom_css %}
+    <link rel="stylesheet" href="{{ url_for('static' , filename='style/' + custom_css + '.css') }}">
+    {% endif %}
+</head>
+
+<body>
+
+    <header>
+        {% if navbar %}
+        <img src="{{ url_for('static' , filename='imgs/bagepic.png')  }}" id="icon" width="50" hight="50"
+            alt="loading...">
+        <h2>GuidedUplift<h2>
+                <div class="menu">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/std_org">Study </a></li>
+                        <li><a href="/study_timetable">Timetable</a></li>
+                        <li><a href="/learn_tech_mem"> Techniques</a></li>
+                        <li><a href="/books"> Books</a></li>
+                        <li><button name="sigin"><a href="/login">sign in</a></button></li>
+                        <li><button name="sigup"><a href="/create_account">sign up</a></button></li>
+                        <!-- <li><a href="../../controllers/logout.php">logout</a></li> -->
+                    </ul>
+
+                </div>
+                {% endif %}
+    </header>
+
+    <main>
+        {% block main %}
+        {% endblock %}
+    </main>
+    <footer>
+        <h3>GuidedUplift &copy; Copyright 2024 All Rightes Reserved.</h3>
+    </footer>
+</body>
+
+</html>

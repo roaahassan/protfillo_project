@@ -1,0 +1,85 @@
+<!-- file name : books.html -->
+<!-- Author : Zeinab Abdallaziz Ahmed  -->
+<!-- created 6/23/2024 last & modification at 6/25/2024 -->
+<!-- the perpus of this file is  to structure learning techniuqes/memory page -->
+{% extends 'base.html' %}
+
+{% block main %}
+<img src="{{url_for( 'static' , filename='imgs/proxy-image (11).jfif' )}}" id="pic">
+<h4 id="subtitle">Study Techniques & Tips That Actually Work</h4>
+<div class="one">
+  <h5>Color-Coded Notes</h5>
+  <img src="{{url_for('static' , filename='imgs/7-color-coded-notes-post-image.webp')}}">
+  <p> Messy notes can make it hard to recall the critical points of a lecture. Writing in color is one of the best study
+    methods because it’s a dynamic way to organize new information. It also helps you review and prioritize the most
+    important ideas.
+
+    A 2019 study found that color can improve a person’s memory performance.10 That same study found that warm colors
+    (red and yellow) “can create a learning environment that is positive and motivating that can help learners not only
+    to have a positive perception toward the content but also to engage and interact more with the learning materials.”
+    It also reported that warmer colors “increase attention and elicit excitement and information.”
+
+    Writing in color may seem like a no-brainer, but keep these tips for how to study effectively in mind:
+
+    Write down key points in red.
+    Highlight important information in yellow.
+    Organize topics by color.
+    Don’t color everything—just the key information.</p>
+</div>
+<div class="two">
+  <h5> Mind Mapping</h5>
+  <img src="{{url_for('static' , filename='imgs/8-mind-mapping-post-image.webp')}}">
+
+  <p>If you’re a visual learner, try mind mapping. It’s one of the most effective study techniques because it allows you
+    to visually organize information in a diagram.11 First, you write a word in the center of a blank page. From there,
+    you write main ideas and keywords and connect them directly to the central concept. Other related ideas will
+    continue to branch out.
+
+    The structure of a mind map is related to how our brains store and retrieve information. Mind mapping your notes
+    instead of just writing them down can improve your reading comprehension.11 It’s one of the best studying techniques
+    for enabling you to see the big picture by communicating the hierarchy and relationships between concepts and ideas.
+
+    So, how do you do it?
+    Grab a blank sheet of paper or use an online tool and write your study topic in the center, such as “child
+    development.”12
+    Connect one of your main ideas (i.e., a chapter of your book or notes) to the main topic, such as “developmental
+    stages.”
+    Connect sub-branches of supporting ideas to your main branch. This is the association of ideas. For example,
+    “Sensorimotor,” “Preoperational,” “Concrete operational,” and “Formal operational.”
+    TIP: Use different colors for each branch and draw pictures if it helps.</p>
+</div>
+<div class="three">
+  <h5>Exercise Before Studying</h5>
+  <img src="{{url_for('static' , filename='imgs/9-exercise-before-studying-post-image.webp')}}">
+  <p>Exercise fights
+    fatigue and can increase energy levels.13 If you’re struggling with how to study effectively,
+    consider adding an exercise routine to your day. It doesn’t have to be a full hour at the gym. It can be a 20-minute
+    workout at home or a brisk walk around your neighborhood. Anything to get your heart rate pumping. Exercising before
+    you study:
+
+    Kickstarts brain function and can help improve memory and cognitive performance.14
+    Releases endorphins, which can improve your mood and reduce stress levels.15</p>
+</div>
+<div class="four">
+  <h5>Study Before Bed</h5>
+  <img src="{{url_for('static' , filename='imgs/10-study-before-bed-post-image.webp')}}">
+  <p>Sleep is crucial for brain
+    function, memory formation, and learning. Studying before you sleep, whether it is
+    reviewing flashcards or notes, can help improve recall.16 According to Scott Cairney, a researcher from the
+    University of York in the United Kingdom:
+
+    “When you are awake, you learn new things, but when you are asleep, you refine them, making it easier to retrieve
+    them and apply them correctly when you need them most. This is important for how we learn but also for how we might
+    help retain healthy brain functions.”
+
+    When you’re asleep, the brain organizes your memories. Instead of pulling an all-nighter, study a few hours before
+    bed and review the information in the morning.
+
+    No one wants to spend more time studying than they need to. Learning effective study techniques for graduate school
+    can ensure you are fully prepared for your exams and will help curve any looming test anxiety. Hopefully, with the
+    techniques above, you can avoid cramming the night before and make your study time more effective. For more tips on
+    the best ways to study, download the infographic below.</p>
+
+</div>
+<br><br><br><br>
+{% endblock %}

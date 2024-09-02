@@ -1,0 +1,99 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    box-sizing: border-box; 
+     /* background: url(../imgs/students.jpg) no-repeat center/ cover;  */
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    font-size:larger;
+    overflow: hidden;
+    
+}
+header img{
+    /* background-color: rgba(0, 0, 0, 0.123); */
+    border-radius: 50%;
+     margin: 3px 3px 0px 2px;  
+    display: inline;
+    float: left;
+} 
+
+ header h2:hover {
+    color: rgb(214, 181, 118);
+    
+}
+/* header,footer{
+    
+    position: absolute;
+    width: 100%;
+    color: white;
+} */
+header{
+    position: absolute;
+    width: 100%;
+    /* color: white; */
+    background-color:  rgb(178, 177, 184);
+    height: 10vh;
+    margin-bottom:300px; 
+        
+}
+
+body h2{
+    margin-top: 30px;
+    color: white;
+    text-align: center;
+}
+
+header h2 {
+    font-weight: bold;
+    display: inline;  
+    float: left;
+    margin-top: 15px;
+    height: 50px;
+    width: 80px;
+    color: rgb(250, 248, 248);
+}
+
+.bg{
+    position: absolute;
+    background-color: rgba(155, 157, 160, 0.651); 
+    width: 450px;
+    height: 190px;
+    justify-items: center;
+    padding: 10px;
+    margin: 250px 10px 100px 390px;
+    border: 1px solid black;
+
+}
+form input {
+    padding: 15px;
+    justify-items: center;
+    border-radius: 8px;
+    margin-left: 100px;
+    margin-top: 60px;
+    border: 1px solid black;
+     background-color: rgba(41, 68, 109, 0.979);
+    /* background-color: rgba(211, 157, 57, 0.788); */
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+footer{
+    position: absolute;
+    width: 100%;
+    color: white;
+    background-color:  rgb(156, 155, 163);
+    height: 10vh;
+     margin-top:600px; 
+     /* bottom: 0;  */
+     
+}
+footer h3 {
+    position: absolute;
+    left: 30%;
+    margin-top: 20px;
+    color: white;
+}
