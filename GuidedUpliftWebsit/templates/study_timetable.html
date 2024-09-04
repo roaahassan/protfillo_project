@@ -7,9 +7,13 @@
 {% extends 'base.html' %}
 
 {% block main %}
+{% if user.is_authenicated %}
 <div class="tim-cont">
-  <h1>create your timetable</h1>
-  <form action="../../controllers/timetable.php" id="timetable-form" method="post">
+  <h1>Create Your Study Timetable</h1>
+  <div class="logout">
+    <a href="./logout" class="logout-btn">logout</a>
+  </div>
+  <form id="timetable-form" method="post">
     <input type="hidden" name="id" id="tId">
     <input type="text" name="day" id="day" placeholder="Day" required>
     <input type="text" name="time" id="time" placeholder="Time" required>
@@ -17,4 +21,27 @@
     <button type="submit" name="create">add</button>
   </form>
 </div>
+{% endif %}
+
+{% for post in posts %}
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Day</th>
+        <th>Time</th>
+        <th>Subject</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{post.day}}</td>
+        <td>{{post.time}}</td>
+        <td>{{post.subject}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{%endfor%}
+
 {% endblock %}

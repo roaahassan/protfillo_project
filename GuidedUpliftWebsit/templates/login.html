@@ -24,6 +24,13 @@
             <input type="text" name="uname" placeholder="Enter user name" id="name">
             <input type="password" name="upass" placeholder="Enter password" id="pw">
             <input type="submit" value="login" id="go">
+            {% if error %}
+            <div class="alert" role="alert">
+                Invalid User Or Password !
+                <button type="button" class="btn-cls" data-bs-dismiss="alert" aria-label="Close">
+                </button>
+            </div>
+            {% endif %}
         </form>
         <p>Don’t have an account?create it<a href="create_account">here</a></p>
 

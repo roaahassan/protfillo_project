@@ -29,11 +29,12 @@
             <p>Already have an account?
                <a href="/login">login</a>
             </p>
+            {% if error %}
             <div class="custom-alert" role="alert">
                User name is used before !
                <button type="button" class="close-btn" aria-label="Close"></button>
             </div>
-
+            {% endif %}
          </form>
 
       </div>
