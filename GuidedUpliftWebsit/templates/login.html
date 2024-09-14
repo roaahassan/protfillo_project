@@ -25,10 +25,9 @@
             <input type="password" name="upass" placeholder="Enter password" id="pw">
             <input type="submit" value="login" id="go">
             {% if error %}
-            <div class="alert" role="alert">
+            <div class="alert" alert-danger alert-dismissible fade show mt-4 role="alert">
                 Invalid User Or Password !
-                <button type="button" class="btn-cls" data-bs-dismiss="alert" aria-label="Close">
-                </button>
+                <button type="button" class="btn-cls" data-bs-dismiss="alert" aria-label="Close"></button>  
             </div>
             {% endif %}
         </form>

@@ -2,6 +2,8 @@ from flask import Blueprint, render_template , request
 from flask_login import current_user
 from .models import Timetable
 from GuidedUpliftWebsit import db
+from flask_login import login_required
+from datetime import datetime, time 
 
 views = Blueprint("views", __name__)
 
@@ -23,17 +25,24 @@ def study_org():
                            custom_css="std_org_sty")
 
 
+def convert_to_time(time_str):
+   return datetime.strptime(time_str, '%H:%M').time()
+
 @views.route("/study_timetable", methods=["GET", "POST"])
 @login_required
 def timetable_page():
-    all_posts = Post.query.all()
+    all_timetables = Timetable.query.all()
     if request.method == "POST":
         day = request.form.get('day')
-        time = request.form.get('time')
-        subject = request.form.get('subject')
+        start_time_str = request.form.get('srt_tim')
+        end_time_str = request.form.get('end_tim')
+        std_activity = request.form.get('activity')
+        
+        start_time = convert_to_time(start_time_str)
+        end_time = convert_to_time(end_time_str)
 
-        timetable = Timetable(day=day,time=time,subject=subject,
-        user_id=current_user.id, posts=all_posts)
+        timetable = Timetable(day=day,start_time=start_time,end_time=end_time,
+        activity=std_activity,user_id=current_user.id)
 
         db.session.add(timetable)
         db.session.commit()
@@ -41,7 +50,7 @@ def timetable_page():
     return render_template("study_timetable.html",
                            title="Study timetable",
                            custom_css="timtable",
-                           user=current_user)
+                           user=current_user, timetables=all_timetables)
 
 
 @views.route("/learn_tech_mem")

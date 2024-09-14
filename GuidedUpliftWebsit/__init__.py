@@ -21,7 +21,7 @@ def create_app():
     app.register_blueprint(views, url_prefix="/")
     app.register_blueprint(auth, url_prefix="/")
 
-    from .models import Users
+    from .models import Users , Timetable
     # create_db(app)
 
     login_manager = LoginManager()
@@ -35,13 +35,13 @@ def create_app():
     return app
 
 
-# def create_db(app):
-#     if not path.exists('GuidedUpliftWebsit/database.db'):
-#         db.create_all(app = app)
-#         print("Create DB !")
-
 def create_db(app):
-    with app.app_context():
-        if not path.exists('GuidedUpliftWebsit/database.db'):
-            db.create_all()
-            print("Create DB!")
+    if not path.exists('GuidedUpliftWebsit/database.db'):
+        db.create_all(app = app)
+        print("Create DB !")
+
+# def create_db(app):
+#     with app.app_context():
+#         if not path.exists('GuidedUpliftWebsit/database.db'):
+#             db.create_all()
+#             print("Create DB!")

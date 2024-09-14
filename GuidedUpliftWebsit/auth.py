@@ -2,16 +2,13 @@ from flask import Blueprint, render_template, request, redirect, url_for
 # from .urls import uri_to_iri
 from werkzeug.security import generate_password_hash, check_password_hash
 from .models import Users
-from GuidedUpliftWebsit import db
-from sqlalchemy.exc import IntegrityError
-from flask import jsonify
+from . import db
 from flask_login import login_user, logout_user, login_required, current_user
 auth = Blueprint("auth", __name__)
 
 
 @auth.route('/login', methods=["GET", "POST"])
 def login_page():
-    """
      error = False
      if request.method == "POST":
         username = request.form.get('uname')
@@ -24,9 +21,9 @@ def login_page():
                  return redirect(url_for("views.timetable_page"))
             else: error = True
         else: error = True
-    """
+    
 
-    return render_template("login.html",
+     return render_template("login.html",
                            title="Login Page",
                            custom_css="login_sty",
                            error=error,
@@ -35,6 +32,7 @@ def login_page():
 
 @auth.route('/create_account', methods=["GET", "POST"])
 def creat_account_page():
+    error = False
     if request.method == "POST":
         username = request.form.get('uname')
         email = request.form.get('email')
@@ -60,7 +58,7 @@ def creat_account_page():
       user="current_user")
 
 @auth.route("/logout")
-@logout_required 
+@login_required 
 def logout():
     logout_user()
     return redirect(url_for('auth.login_page'))

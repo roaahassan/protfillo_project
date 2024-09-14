@@ -1,47 +1,52 @@
-<!-- file name : study_timetable.html -->
-<!-- Author : Nosiba Elmokashfi Musa -->
-<!-- created : 27/6/2024 
-  last modification : 27/6/2024 -->
-<!-- perpus: to structure sudents organization page -->
 
 {% extends 'base.html' %}
 
 {% block main %}
-{% if user.is_authenicated %}
+{% if user.is_authenticated %}
+<div class="btn-div">
+<button><a href="./logout" class="logout-btn">logout</a></button>
+</div>
 <div class="tim-cont">
+    <!-- <button><a href="./logout" class="logout-btn">logout</a></button> -->
   <h1>Create Your Study Timetable</h1>
-  <div class="logout">
-    <a href="./logout" class="logout-btn">logout</a>
-  </div>
   <form id="timetable-form" method="post">
     <input type="hidden" name="id" id="tId">
     <input type="text" name="day" id="day" placeholder="Day" required>
-    <input type="text" name="time" id="time" placeholder="Time" required>
-    <input type="text" name="subject" id="subject" placeholder="Subject" required>
-    <button type="submit" name="create">add</button>
+    <input type="text" name="srt_tim" id="time" placeholder="Start Time" required>
+    <input type="text" name="end_tim" id="time" placeholder="End Time" required>
+    <input type="text" name="activity" id="act" placeholder="Study Activity" required>
+    <button type="submit" name="create"  class="add">Add</button>
   </form>
 </div>
 {% endif %}
 
-{% for post in posts %}
 <div>
   <table>
     <thead>
       <tr>
         <th>Day</th>
-        <th>Time</th>
-        <th>Subject</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Study acitivty</th>
       </tr>
     </thead>
+  </table>
+{% for timetable in timetables %}
+<table>
     <tbody>
       <tr>
-        <td>{{post.day}}</td>
-        <td>{{post.time}}</td>
-        <td>{{post.subject}}</td>
+        <td>{{timetable.day}}</td>
+        <td>{{timetable.start_time}}</td>
+        <td>{{timetable.end_time}}</td>
+        <td>{{timetable.activity}}</td>
       </tr>
     </tbody>
   </table>
 </div>
 {%endfor%}
 
+
+
 {% endblock %}
+
+
