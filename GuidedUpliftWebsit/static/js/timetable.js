@@ -1,7 +1,8 @@
-function editTimetable(id, day, time, subject) {
-    document.getElementById('tId').value = id;
+function editTimetable(id, day, srt_tim,end_tim, activity) {
+    document.getElementById('id').value = id;
     document.getElementById('day').value = day;
-    document.getElementById('time').value = time;
-    document.getElementById('subject').value = subject;
+    document.getElementById('stime').value = srt_tim;
+    document.getElementById('etime').value = end_tim;
+    document.getElementById('act').value = activity;
     document.querySelector('button[name="create"]').setAttribute('name','update');
 }

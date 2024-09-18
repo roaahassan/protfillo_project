@@ -12,39 +12,109 @@
   <form id="timetable-form" method="post">
     <input type="hidden" name="id" id="tId">
     <input type="text" name="day" id="day" placeholder="Day" required>
-    <input type="text" name="srt_tim" id="time" placeholder="Start Time" required>
-    <input type="text" name="end_tim" id="time" placeholder="End Time" required>
+    <input type="text" name="srt_tim" id="stime" placeholder="Start Time" required>
+    <input type="text" name="end_tim" id="etime" placeholder="End Time" required>
     <input type="text" name="activity" id="act" placeholder="Study Activity" required>
-    <button type="submit" name="create"  class="add">Add</button>
+    <button type="submit" name="create"  class="add">Add/Update</button>
   </form>
 </div>
 {% endif %}
 
 <div>
-  <table>
+  <table id="timetable-table">
     <thead>
       <tr>
         <th>Day</th>
         <th>Start Time</th>
         <th>End Time</th>
-        <th>Study acitivty</th>
+        <th>Study acitivty</th>  
+        <th>Actions</th>
       </tr>
     </thead>
-  </table>
+  </tbody>
 {% for timetable in timetables %}
-<table>
-    <tbody>
-      <tr>
+      <tr data-id="{{ timetable.tbl_id }}">
         <td>{{timetable.day}}</td>
-        <td>{{timetable.start_time}}</td>
-        <td>{{timetable.end_time}}</td>
+        <td>{{timetable.start_time.strftime('%H:%M')}}</td>
+        <td>{{timetable.end_time.strftime('%H:%M')}}</td>
         <td>{{timetable.activity}}</td>
+        <td>
+          <button class="edit-btn">Edit</button>
+          <button class="delete-btn">Delete</button>
+        </td>
       </tr>
+      {%endfor%}
     </tbody>
   </table>
 </div>
-{%endfor%}
 
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    // Add timetable
+    $('#timetable-form').on('submit', function(event) {
+       event.preventDefault();
+       const id = $('#tId').val();
+       const day = $('#day').val();
+       const start_time = $('#stime').val();
+       const end_time = $('#etime').val();
+       const activity = $('#act').val();
+       
+       const url = id ? '/edit/${id}' : "/study_timetable";
+       const method = id ? "PUT" : "POST"
+
+       $.ajax({
+        url: url,
+        method: method,
+        contentType: 'application/json',
+        data: JSON.stringify({ id, day, stime:start_time, etime:end_time, act:activity  }),
+        success: function(response) {
+          location.reload();
+        }, 
+        error:  function() {
+           alert('Error saving timetable');
+        }
+
+    });
+  });
+
+    // Edit timetable
+    $('#timetable-table').on('click', '.edit-btn', function() {
+      const row = $(this).closest('tr');
+      const id = row.data('id');
+      const day = row.find('td').eq(0).text();
+      const start_time = row.find('td').eq(1).text();
+      const end_time = row.find('td').eq(2).text();
+      const activity = row.find('td').eq(3).text();
+
+      $('#tId').val(id);
+      $('#day').val(day);
+      $('#stime').val(start_time);
+      $('#etime').val(end_time);
+      $('#act').val(activity);
+    });
+
+    // Delete timetable
+    $('#timetable-table').on('click', '.delete-btn', function() {
+      const row = $(this).closest('tr');
+      const id = row.data('id');
+
+      if (confirm('Are you sure want to delete this timetable?')) {
+        $.ajax({
+          url: '/delete/${id}',
+          method: "POST",
+          success:  function(response) {
+            row.remove();
+          },
+          error:  function() {
+            alert('Error deleting timetable');
+          }
+        });
+      }
+    });
+  });
+</script>
 
 
 {% endblock %}

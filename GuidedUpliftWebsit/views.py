@@ -1,8 +1,8 @@
-from flask import Blueprint, render_template , request
-from flask_login import current_user
+from flask import Blueprint, render_template , request, jsonify
+from flask_login import current_user , login_required
 from .models import Timetable
 from GuidedUpliftWebsit import db
-from flask_login import login_required
+# from flask_login import login_required
 from datetime import datetime, time 
 
 views = Blueprint("views", __name__)
@@ -31,27 +31,88 @@ def convert_to_time(time_str):
 @views.route("/study_timetable", methods=["GET", "POST"])
 @login_required
 def timetable_page():
-    all_timetables = Timetable.query.all()
+    # all_timetables = Timetable.query.all()
     if request.method == "POST":
+        data = request.get_json()
+        timetable_id = data.get('id')
+        day = data.get('day')
+        start_time_str = data.get('stime')
+        end_time_str = data.get('etime')
+        std_activity = data.get('act') 
+        """
         day = request.form.get('day')
         start_time_str = request.form.get('srt_tim')
         end_time_str = request.form.get('end_tim')
-        std_activity = request.form.get('activity')
+        std_activity = request.form.get('activity') 
+        
+        """
         
         start_time = convert_to_time(start_time_str)
         end_time = convert_to_time(end_time_str)
 
-        timetable = Timetable(day=day,start_time=start_time,end_time=end_time,
-        activity=std_activity,user_id=current_user.id)
+        if timetable_id:
+            timetable = Timetable.query.get(timetable_id)
+            if timetable:
+               timetable.day = day
+               timetable.start_time = start_time
+               timetable.end_time = end_time
+               timetable.activity = std_activity
+               db.session.commit()
 
-        db.session.add(timetable)
-        db.session.commit()
-
+        else:
+             timetable = Timetable(day=day,start_time=start_time,end_time=end_time,
+             activity=std_activity,user_id=current_user.id)
+             db.session.add(timetable)
+             db.session.commit()
+        return jsonify(success=True)
+    # all_timetables = Timetable.query.filter_by(user=current_user.id).all()
+    
+    all_timetables = Timetable.query.filter_by(user_id=current_user.id).all()
     return render_template("study_timetable.html",
                            title="Study timetable",
                            custom_css="timtable",
                            user=current_user, timetables=all_timetables)
+# @views.route("/add", methods=["POST"])
+# def add_timetable():
+#         day = request.form.get('day')
+#         start_time_str = request.form.get('srt_tim')
+#         end_time_str = request.form.get('end_tim')
+#         std_activity = request.form.get('activity') 
 
+#         start_time = convert_to_time(start_time_str)
+#         end_time = convert_to_time(end_time_str)
+
+#         timetable = Timetable(day=day,start_time=start_time,end_time=end_time,
+#         activity=std_activity,user_id=current_user.id)
+#         db.session.add(timetable)
+#         db.session.commit()
+        
+
+
+@views.route("/edit/<int:id>", methods=["PUT"])
+@login_required
+def edit_timetable(id):
+    data = request.get_json()
+    timetable = Timetable.query.get(id)
+    if timetable :
+        timetable.day = data['day']
+        timetable.start_time = convert_to_time(data['stime'])
+        timetable.end_time = convert_to_time(data['etime'])
+        timetable.activity = data['act']
+        db.session.commit()
+        return jsonify(success=True)
+    return jsonify(error='Timetable not found'), 404
+
+@views.route("/delete/<int:id>", methods=["POST"])
+@login_required
+def delete_timetable():
+    timetable = Timetable.query.get(id)
+    # timetable = Timetable.query.get(timetable_id)
+    if timetable:
+        db.session.delete(timetable)
+        db.session.commit()
+        return jsonify(success=True)
+    return jsonify(error='Timetable not found'), 404
 
 @views.route("/learn_tech_mem")
 def learn_tech_mem_page():
