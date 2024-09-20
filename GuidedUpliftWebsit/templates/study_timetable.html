@@ -10,7 +10,7 @@
     <!-- <button><a href="./logout" class="logout-btn">logout</a></button> -->
   <h1>Create Your Study Timetable</h1>
   <form id="timetable-form" method="post">
-    <input type="hidden" name="id" id="tId">
+    <input type="hidden" name="id" id="id">
     <input type="text" name="day" id="day" placeholder="Day" required>
     <input type="text" name="srt_tim" id="stime" placeholder="Start Time" required>
     <input type="text" name="end_tim" id="etime" placeholder="End Time" required>
@@ -55,13 +55,13 @@
     // Add timetable
     $('#timetable-form').on('submit', function(event) {
        event.preventDefault();
-       const id = $('#tId').val();
+       const id = $('#id').val();
        const day = $('#day').val();
        const start_time = $('#stime').val();
        const end_time = $('#etime').val();
        const activity = $('#act').val();
        
-       const url = id ? '/edit/${id}' : "/study_timetable";
+       const url = id ? `/edit/${id}` : "/study_timetable";
        const method = id ? "PUT" : "POST"
 
        $.ajax({
@@ -72,7 +72,8 @@
         success: function(response) {
           location.reload();
         }, 
-        error:  function() {
+        error:  function(jqXHR, textStatus, errorThrown) {
+           console.error("Error:",textStatus, errorThrown)
            alert('Error saving timetable');
         }
 
@@ -88,7 +89,7 @@
       const end_time = row.find('td').eq(2).text();
       const activity = row.find('td').eq(3).text();
 
-      $('#tId').val(id);
+      $('#id').val(id);
       $('#day').val(day);
       $('#stime').val(start_time);
       $('#etime').val(end_time);
@@ -102,7 +103,7 @@
 
       if (confirm('Are you sure want to delete this timetable?')) {
         $.ajax({
-          url: '/delete/${id}',
+          url: `/delete/${id}`,
           method: "POST",
           success:  function(response) {
             row.remove();

@@ -34,6 +34,9 @@ def timetable_page():
     # all_timetables = Timetable.query.all()
     if request.method == "POST":
         data = request.get_json()
+        if not data:
+            return jsonify(error="No data provided"), 400 
+        
         timetable_id = data.get('id')
         day = data.get('day')
         start_time_str = data.get('stime')
@@ -105,9 +108,8 @@ def edit_timetable(id):
 
 @views.route("/delete/<int:id>", methods=["POST"])
 @login_required
-def delete_timetable():
+def delete_timetable(id):
     timetable = Timetable.query.get(id)
-    # timetable = Timetable.query.get(timetable_id)
     if timetable:
         db.session.delete(timetable)
         db.session.commit()
